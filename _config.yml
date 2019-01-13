@@ -1,1 +1,5 @@
 theme: jekyll-theme-cayman
+custom_buttons:
+  -
+    title: SpoilerBot
+    url: https://pfgithub.github.io/spoilerbot/
