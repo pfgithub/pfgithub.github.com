@@ -1,4 +1,4 @@
-theme: jekyll-theme-cayman
+remote_theme: pfgithub/cayman
 custom_buttons:
   -
     title: SpoilerBot
