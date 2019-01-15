@@ -3,3 +3,6 @@ custom_buttons:
   -
     title: SpoilerBot
     url: https://pfgithub.github.io/spoilerbot/
+  -
+    title: Atom Markdown Editor
+    url: https://github.com/pfgithub/atom-markdown-editor
