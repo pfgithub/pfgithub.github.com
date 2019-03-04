@@ -1,6 +1,9 @@
 remote_theme: pfgithub/cayman
 custom_buttons:
   -
+    title: ScPL
+    url: https://pfgithub.github.io/shortcutslang/
+  -
     title: SpoilerBot
     url: https://pfgithub.github.io/spoilerbot/
   -
