@@ -3,6 +3,8 @@ homepage
 
 ## projects
 
-[ScPL](https://pfgithub.github.io/shortcutslang/)
-[spoilerbot](https://pfgithub.github.io/spoilerbot/)  
-[atom markdown editor](https://github.com/pfgithub/atom-markdown-editor)  
+- [ScPL](shortcutslang)
+- [ScPL Editor](scpl-editor)
+- [sitepages](sitepages)
+- [spoilerbot](spoilerbot)  
+- [atom markdown editor](https://github.com/pfgithub/atom-markdown-editor)  
