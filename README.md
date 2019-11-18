@@ -2,7 +2,7 @@
 
 # projects
 
-- [interpunctbot](https://github.com/pfgithub/interpunctbot) - a discord bot that does a few
+- [interpunctbot](https://discordbots.org/bot/433078185555656705) - a discord bot that does a few
   things like adding spaces to channel names and letting mods rank people with emojis.
   a new version, ipv3, is currently being worked on that will improve the user experience
   and add a few new features.
