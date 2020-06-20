@@ -26,6 +26,7 @@ note: items here were programmed quickly with little regard for code quality and
 
 - [mapexplorer](https://pfg.pw/mapexplorer/) - explore the travelers map
 - [leaderboard history](https://pfg.pw/travelersleaderboard/player) - explore leaderboard history
+- [events](https://pfg.pw/travelersevents/travel-travel.html) - explore the events I have visited. the [wiki](https://thetravelers.miraheze.org/wiki/Locations) is probably more useful than this.
 - [travelersapi](https://github.com/pfgithub/travelersapi) - connect to thetravelers.online from node
 - [my bot](https://github.com/pfgithub/thetravelers-bot) - the bot I use
   
