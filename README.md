@@ -58,6 +58,8 @@ these tools were developed for ios 12 and may still work on ios 13, but not as w
 
 - [masc](https://github.com/pfgithub/masc) - a programming language that compiles
   to human readable mips assembly.
+- [progsim](https://pfg.pw/progsim/progsim) - an assembly-like programming language
+  intended for beginners.
 
 # other things
 
