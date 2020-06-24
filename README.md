@@ -22,8 +22,6 @@
   
 # thetravelers.online
 
-note: items here were programmed quickly with little regard for code quality and readability
-
 - [mapexplorer](https://pfg.pw/mapexplorer/) - explore the travelers map
 - [leaderboard history](https://pfg.pw/travelersleaderboard/player) - explore leaderboard history
 - [events](https://pfg.pw/travelersevents/travel-travel.html) - explore the events I have visited. the [wiki](https://thetravelers.miraheze.org/wiki/Locations) is probably more useful than this.
@@ -33,7 +31,7 @@ note: items here were programmed quickly with little regard for code quality and
 # shortcuts
 
 tools for interacting with the [ios shortcuts app](https://apps.apple.com/us/app/shortcuts/id915249334).
-these tools were developed for ios 12 and may still work on ios 13, but not as well.
+these tools were developed for ios 12 and may still work on ios 13+, but not as well.
 
 - [ScPL](https://scpl.dev) - A programming language that compiles to the iOS Visual
   Scripting tool, Shortcuts.
