@@ -69,3 +69,7 @@ these tools were developed for ios 12 and may still work on ios 13+, but not as 
   javascript code.
 - [customizations](https://github.com/pfgithub/customizations) - userscripts and custom
   stylesheets for various websites and configuration files for some programs.
+
+---
+
+[edit this page](https://github.com/pfgithub/pfgithub.github.com/edit/master/README.md)
