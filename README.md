@@ -28,6 +28,7 @@
 - [wikigen](https://github.com/pfgithub/travelers-wikigen) - generate initial item descriptions for the [wiki](https://thetravelers.miraheze.org/wiki/Locations).
 - [travelersapi](https://github.com/pfgithub/travelersapi) - connect to thetravelers.online from node
 - [my bot](https://github.com/pfgithub/thetravelers-bot) - the bot I use
+- [animated movement](https://github.com/pfgithub/customizations/blob/master/userscripts/thetravelers.online/animatemovement.user.js) - a userscript for clean animated movement effects [like this](https://media.discordapp.net/attachments/638392611173826567/745821609419472987/Peek_2020-08-19_18-48.gif)
   
 # shortcuts
 
