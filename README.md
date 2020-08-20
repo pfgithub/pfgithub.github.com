@@ -63,11 +63,12 @@ these tools were developed for ios 12 and may still work on ios 13+, but not as 
 
 # other things
 
+- [sitepages](sitepages) - quickly hacked together interfaces to quickly hacked together
+  javascript code.
+- [clicker](https://clicker.pfg.pw) - one of those exponential growth "idle games".
 - [electron-music-player](https://github.com/pfgithub/electron-music-player) - a simple,
   lightweight\* music player that shows lyrics of the current song (\* as lightweight as
   an electron project can be, which is not very)
-- [sitepages](sitepages) - quickly hacked together interfaces to quickly hacked together
-  javascript code.
 - [customizations](https://github.com/pfgithub/customizations) - userscripts and custom
   stylesheets for various websites and configuration files for some programs.
 
