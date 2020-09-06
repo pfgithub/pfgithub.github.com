@@ -9,7 +9,8 @@ you are interested in learning it, https://ziglearn.org/ is a good site.
 - [zigmd](https://github.com/pfgithub/zigmd) - a work in progress markdown editor / imgui thing
   written in zig.
 <details>
-<summary>More</summary>
+<summary>More
+</summary>
 
 - [clipnotify](https://github.com/pfgithub/clipnotify) - a clone of
   [cdown/clipnotify](https://github.com/cdown/clipnotify) rewritten in zig that allows selecting which
@@ -41,7 +42,8 @@ you are interested in learning it, https://ziglearn.org/ is a good site.
 - [travelersapi](https://github.com/pfgithub/travelersapi) - connect to thetravelers.online from node. this is what I used to make [my bot](https://github.com/pfgithub/thetravelers-bot)
 - [animated movement](https://github.com/pfgithub/customizations/blob/master/userscripts/thetravelers.online/animatemovement.user.js) - paste in your browser console for clean animated movement effects [like this](https://media.discordapp.net/attachments/638392611173826567/745821609419472987/Peek_2020-08-19_18-48.gif)
 <details>
-<summary>More</summary>
+<summary>More
+</summary>
 
 - [events](https://pfg.pw/travelersevents/travel-travel.html) - explore the events I have visited. the [wiki](https://thetravelers.miraheze.org/wiki/Locations) is probably more useful than this
 - [wikigen](https://github.com/pfgithub/travelers-wikigen) - generate initial item descriptions for the [wiki](https://thetravelers.miraheze.org/wiki/Locations)
@@ -57,7 +59,8 @@ they do not work as well.
 - [ScPL](https://scpl.dev) - A programming language that compiles to the iOS Visual
   Scripting tool, Shortcuts.
 <details>
-<summary>More</summary>
+<summary>More
+</summary>
 
 - [ScPL Actions](https://github.com/pfgithub/scpl-actions) - a work in progress previewer
   and editor for iOS 13 shortcuts.
@@ -72,7 +75,8 @@ mods I made for the game [factorio](https://factorio.com/)
   a run button to make earlygame less painful
 
 <details>
-<summary>More</summary>
+<summary>More
+</summary>
 
 - [one-health](https://mods.factorio.com/mod/one-health) - a mod made by request
   that makes all entities start at one hp so you have to repair them. I have never
@@ -91,7 +95,8 @@ mods I made for the game [factorio](https://factorio.com/)
 - [zig](https://github.com/ziglang/zig) - a good programming language
 
 <details>
-<summary>Programming languages I made:</summary>
+<summary>Programming languages I made
+</summary>
 
 - (abandoned) [ScPL](https://scpl.dev/) - mentioned above on this page
 - (abandoned) [masc](https://github.com/pfgithub/masc) - a programming language that compiles
