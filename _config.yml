@@ -3,4 +3,3 @@ description: "pfg's homepage"
 remote_theme: pfgithub/cayman
 google_analytics: UA-175640008-1
 custom_buttons: []
-markdown: kramdown
