@@ -40,6 +40,7 @@ differently.</li>
 - [leaderboard history](https://pfg.pw/travelersleaderboard/player) - a viewer for the full history of the travelers leaderboard
 - [travelersapi](https://github.com/pfgithub/travelersapi) - connect to thetravelers.online from node. this is what I used to make [my bot](https://github.com/pfgithub/thetravelers-bot)
 - [animated movement](https://github.com/pfgithub/customizations/blob/master/userscripts/thetravelers.online/animatemovement.user.js) - paste in your browser console for clean animated movement effects [like this](https://media.discordapp.net/attachments/638392611173826567/745821609419472987/Peek_2020-08-19_18-48.gif)
+- [bot helper](https://github.com/pfgithub/travelers-bot-helper/tree/master) - a js thing so you can make bots in node without restarting all the time. instead, just press enter and the bot will update.
 <details>
 <summary>More</summary>
 <ul>
