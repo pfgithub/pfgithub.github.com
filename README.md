@@ -8,6 +8,8 @@ you are interested in learning it, https://ziglearn.org/ is a good site.
 - [jsonexplorer](https://github.com/pfgithub/jsonexplorer) - a tool for interactive cli json viewing
 - [zigmd](https://github.com/pfgithub/zigmd) - a work in progress markdown editor / imgui thing
   written in zig.
+- [zcho](https://github.com/pfgithub/zcho) - a few command line utilities for scripts, including a
+  loading spinner and a smooth progress bar.
 <details>
 <summary>More</summary>
 <ul>
