@@ -113,6 +113,8 @@ it that isn&#39;t vaporware</li>
 - [electron-music-player](https://github.com/pfgithub/electron-music-player) - a music
   player that looks pretty good and displays the lyrics of songs. mostly made for personal
   use, so it is not very configurable and likely only supports linux.
+- [.XCompose](http://pfg.pw/customizations/x/keys.html) - a viewer to see all the xcompose
+  keys + the custom ones I added myself
 - [customizations](https://github.com/pfgithub/customizations) - userscripts and custom
   stylesheets for various websites and configuration files for some programs.
 
