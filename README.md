@@ -91,7 +91,7 @@ either.</li>
 
 # programming languages
 
-- [zig](https://github.com/ziglang/zig) - a good programming language
+- [zig](https://github.com/ziglang/zig) - a good programming language that I did not make
 
 <details>
 <summary>Programming languages I made</summary>
