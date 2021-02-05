@@ -1,5 +1,12 @@
 [github](https://github.com/pfgithub)
 
+# threadreader
+
+a website I'm working on for interacting with reddit and mastodon and possibly other websites in the future
+
+- [reddit homepage on threadreader](https://thread.pfg.pw/reddit/)
+- mastodon timeline: `https://thread.pfg.pw/mastodon/`your.instance`/timelines/public`
+
 # zig
 
 [zig](https://ziglang.org) is a new programming language that makes a lot of good design decisions. if
