@@ -5,7 +5,7 @@
 a website I'm working on for interacting with reddit and mastodon and possibly other websites in the future
 
 - [reddit homepage on threadreader](https://thread.pfg.pw/reddit/)
-- mastodon timeline: `https://thread.pfg.pw/mastodon/`your.instance`/timelines/public`
+- [mastodon](https://thread.pfg.pw/mastodon/)
 
 # zig
 
