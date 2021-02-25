@@ -49,22 +49,39 @@ function Technology(attrs: {tech: TechnologyName}): JSX.Element {
 }
 
 function Card(attrs: {title: string, body: JSX.Element, url: string, img: string, img_size: [w: number, h: number], img_pixel?: boolean, technologies: TechnologyName[]}): JSX.Element {
-  return <a class="flex flex-col sm:flex-row hover:shadow-md bg-gray-100 hover:bg-white" href={attrs.url} target="_blank" rel="noreferrer noopener">
-    <div class="sm:w-40 sm:h-auto flex-none overflow-hidden">
-      <img
-        src={attrs.img}
-        width={attrs.img_size[0]}
-        height={attrs.img_size[0]}
-        alt=""
-        class={["w-full h-full object-cover", attrs.img_pixel ? "rendering-crisp-edges" : ""].join(" ")}
-      />
+  return <div class="my-2 flex flex-col sm:flex-row hover:shadow-md bg-gray-100 hover:bg-white" onClick={e => {
+    e.stopPropagation();
+    let target_parent = e.target as Node | null;
+    while(target_parent && target_parent !== e.currentTarget) {
+        if(target_parent instanceof HTMLElement && (false
+            || target_parent.nodeName === "A"
+            || target_parent.nodeName === "BUTTON"
+            || target_parent.nodeName === "VIDEO"
+            || target_parent.nodeName === "AUDIO"
+            || target_parent.nodeName === "INPUT"
+            || target_parent.nodeName === "IFRAME"
+        )) return;
+        target_parent = target_parent.parentNode;
+    }
+    window.open(attrs.url);
+  }}>
+    <div class="sm:w-40 sm:h-auto flex-none overflow-hidden" aria-hidden="true">
+      <a href={attrs.url} target="_blank" rel="noreferrer noopener">
+        <img
+          src={attrs.img}
+          width={attrs.img_size[0]}
+          height={attrs.img_size[0]}
+          alt=""
+          class={["w-full h-full object-cover", attrs.img_pixel ? "rendering-crisp-edges" : ""].join(" ")}
+        />
+      </a>
     </div>
-    <div class="p-4 flex flex-col">
-      <div class="font-black hover:underline">{attrs.title}</div>
+    <div class="p-4 flex flex-col z-10 relative">
+      <a class="font-black hover:underline" href={attrs.url} target="_blank" rel="noreferrer noopener">{attrs.title}</a>
       <div class="mb-2 mt-1">{attrs.body}</div>
       <div class="font-light text-sm">{arraymix(attrs.technologies.map(tech => <Technology tech={tech} />), () => " • ")}</div>
     </div>
-  </a>;
+  </div>;
 }
 
 function LinkOut(attrs: {href: string, children: React.ReactNode}): JSX.Element {
@@ -92,7 +109,7 @@ export default function Home() {
           <div class="w-full"></div>
           <h2 class="font-black text-3xl my-3">Current Projects</h2>
           <p class="mb-3">Large projects I'm working on right now</p>
-          <div class="flex flex-col gap-3">
+          <div class="flex flex-col">
             <Card
               title="inter·punct bot"
               url={"https://interpunct.info"}
@@ -124,7 +141,7 @@ export default function Home() {
           </div>
           <h2 class="font-black text-3xl mb-3 mt-10">Past Projects</h2>
           <p class="mb-3">Large projects I no longer use or maintain</p>
-          <div class="flex flex-col gap-3">
+          <div class="flex flex-col">
             <Card
               title="ScPL"
               url="https://scpl.dev"
@@ -146,7 +163,7 @@ export default function Home() {
             Other things I worked on at some point in the past and may or may not still use{" "}
             or maintain.
           </p>
-          <div class="flex flex-col gap-3">
+          <div class="flex flex-col">
             <Card
               title="Clicker"
               url="https://clicker.pfg.pw"
@@ -307,7 +324,7 @@ export default function Home() {
             />
           </div>
           <h2 class="font-black text-3xl mb-3 mt-10">Links</h2>
-          <div class="flex flex-col gap-3">
+          <div class="flex flex-col">
             <Card
               title="Github"
               url="https://github.com/pfgithub"
