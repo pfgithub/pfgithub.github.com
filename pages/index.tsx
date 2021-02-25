@@ -190,7 +190,7 @@ export default function Home() {
             />
             <Card
               title="masc"
-              url="https://github.com/pfgithub/zcho"
+              url="https://github.com/pfgithub/masc"
               body={<>
                 A programming language that compiles to human-readable mips assembly.
               </>}
