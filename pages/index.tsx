@@ -48,10 +48,16 @@ function Technology(attrs: {tech: TechnologyName}): JSX.Element {
   </a>;
 }
 
-function Card(attrs: {title: string, body: JSX.Element, url: string, img: string, img_pixel?: boolean, technologies: TechnologyName[]}): JSX.Element {
+function Card(attrs: {title: string, body: JSX.Element, url: string, img: string, img_size: [w: number, h: number], img_pixel?: boolean, technologies: TechnologyName[]}): JSX.Element {
   return <a class="flex flex-col sm:flex-row hover:shadow-md bg-gray-100 hover:bg-white" href={attrs.url} target="_blank" rel="noreferrer noopener">
     <div class="sm:w-40 sm:h-auto flex-none overflow-hidden">
-      <img class={["w-full h-full object-cover", attrs.img_pixel ? "rendering-crisp-edges" : ""].join(" ")} src={attrs.img}></img>
+      <img
+        src={attrs.img}
+        width={attrs.img_size[0]}
+        height={attrs.img_size[0]}
+        alt=""
+        class={["w-full h-full object-cover", attrs.img_pixel ? "rendering-crisp-edges" : ""].join(" ")}
+      />
     </div>
     <div class="p-4 flex flex-col">
       <div class="font-black hover:underline">{attrs.title}</div>
@@ -71,6 +77,10 @@ function LinkOut(attrs: {href: string, children: React.ReactNode}): JSX.Element 
 
 export default function Home() {
   return <>
+    <Head>
+      <title>pfg's homepage</title>
+      <meta name="description" content="pfg's homepage website that is a homepage." />
+    </Head>
     <header class="bg-gradient-to-br from-green-700 to-blue-600">
       <div class="px-4 py-16 sm:py-32 flex flex-row justify-center">
         <h1 class="w-max text-5xl font-black text-white">pfg's homepage</h1>
@@ -94,6 +104,7 @@ export default function Home() {
                 roles faster using emojis.
               </>}
               img={"/icons/interpunct_img.png"}
+              img_size={[960, 600]}
               technologies={["typescript", "node", "discord_js"]}
             />
             <Card
@@ -107,6 +118,7 @@ export default function Home() {
                 view for Mastodon.
               </>}
               img={"/icons/threadreader.png"}
+              img_size={[648, 408]}
               technologies={["typescript", "tailwind", "webpack", "vanilla_js"]}
             />
           </div>
@@ -125,6 +137,7 @@ export default function Home() {
                 maintained and is missing new actions that were added in recent iOS updates.
               </>}
               img={"/icons/scpl.png"}
+              img_size={[519, 328]}
               technologies={["typescript", "react", "codemirror"]}
             />
           </div>
@@ -142,6 +155,7 @@ export default function Home() {
                 iOS notes app with no indentation and no way to test that the code worked.
               </>}
               img={"/icons/clicker.png"}
+              img_size={[924, 437]}
               technologies={["typescript", "webpack", "vanilla_js", "scss"]}
             />
             <Card
@@ -152,6 +166,7 @@ export default function Home() {
                 searching by lyrics.
               </>}
               img={"/icons/musicplayer.png"}
+              img_size={[658, 377]}
               technologies={["typescript", "electron", "scss", "vanilla_js", "μhtml", "parcel"]}
             />
             <Card
@@ -166,6 +181,7 @@ export default function Home() {
                 [go to coords].
               </>}
               img={"/icons/mapexplorer.png"}
+              img_size={[867, 490]}
               technologies={["javascript"]}
             />
             <Card
@@ -175,6 +191,7 @@ export default function Home() {
                 An assembly-like programming language intended for beginners to programming.
               </>}
               img={"/icons/progsim.png"}
+              img_size={[485, 315]}
               technologies={["javascript"]}
             />
             <Card
@@ -186,6 +203,7 @@ export default function Home() {
                 ability to run from the moment you start the game.
               </>}
               img={"/icons/earlygame_run.png"}
+              img_size={[460, 256]}
               technologies={["lua"]}
             />
             <Card
@@ -195,6 +213,7 @@ export default function Home() {
                 A programming language that compiles to human-readable mips assembly.
               </>}
               img={"/icons/masc.png"}
+              img_size={[324, 174]}
               technologies={["typescript"]}
             />
             <Card
@@ -205,6 +224,7 @@ export default function Home() {
                 <LinkOut href="https://thetravelers.online">thetravelers.online</LinkOut>.
               </>}
               img={"/icons/travelersleaderboard.png"}
+              img_size={[577, 352]}
               technologies={["javascript"]}
             />
             <Card
@@ -216,6 +236,7 @@ export default function Home() {
                 for shell scripts, and some other helper tools for shell scripts.
               </>}
               img={"/icons/jsonexplorer.png"}
+              img_size={[425, 211]}
               technologies={["zig"]}
             />
             <Card
@@ -226,6 +247,7 @@ export default function Home() {
                 <LinkOut href="https://thetravelers.online">thetravelers.online</LinkOut>.
               </>}
               img={"/icons/travelersapi.png"}
+              img_size={[760, 405]}
               technologies={["typescript", "node"]}
             />
             <Card
@@ -238,6 +260,7 @@ export default function Home() {
                 down a side button and scrolling to change volume.
               </>}
               img={"/icons/mousebuttons.png"}
+              img_size={[91, 67]}
               technologies={["zig", "xlib"]}
             />
             <Card
@@ -247,6 +270,7 @@ export default function Home() {
                 A program for transferring files quickly within your local network.
               </>}
               img={"/icons/filetransfer.png"}
+              img_size={[566, 283]}
               technologies={["javascript", "express", "ejs"]}
             />
             <Card
@@ -257,6 +281,7 @@ export default function Home() {
                 or maintained.
               </>}
               img={"/icons/pixelcode.png"}
+              img_size={[347, 107]}
               img_pixel={true}
               technologies={["zig", "sdl", "tree_sitter"]}
             />
@@ -267,6 +292,7 @@ export default function Home() {
                 A demo of a window system that supports resizing on touchscreen interfaces.
               </>}
               img={"/icons/windowsystem.png"}
+              img_size={[559, 312]}
               technologies={["typescript", "webpack", "scss"]}
             />
             <Card
@@ -276,6 +302,7 @@ export default function Home() {
                 A collection of random unrelated web tools to perform various functions.
               </>}
               img={"/icons/sitepages.png"}
+              img_size={[341, 165]}
               technologies={["javascript", "vanilla_js", "μhtml"]}
             />
           </div>
@@ -288,6 +315,7 @@ export default function Home() {
                 My github page.
               </>}
               img={"/icons/github.png"}
+              img_size={[744, 441]}
               technologies={[]}
             />
           </div>
