@@ -53,15 +53,15 @@ function Card(attrs: {title: string, body: JSX.Element, url: string, img: string
     e.stopPropagation();
     let target_parent = e.target as Node | null;
     while(target_parent && target_parent !== e.currentTarget) {
-        if(target_parent instanceof HTMLElement && (false
-            || target_parent.nodeName === "A"
-            || target_parent.nodeName === "BUTTON"
-            || target_parent.nodeName === "VIDEO"
-            || target_parent.nodeName === "AUDIO"
-            || target_parent.nodeName === "INPUT"
-            || target_parent.nodeName === "IFRAME"
-        )) return;
-        target_parent = target_parent.parentNode;
+      if(target_parent instanceof HTMLElement && (false
+        || target_parent.nodeName === "A"
+        || target_parent.nodeName === "BUTTON"
+        || target_parent.nodeName === "VIDEO"
+        || target_parent.nodeName === "AUDIO"
+        || target_parent.nodeName === "INPUT"
+        || target_parent.nodeName === "IFRAME"
+      )) return;
+      target_parent = target_parent.parentNode;
     }
     window.open(attrs.url);
   }}>
