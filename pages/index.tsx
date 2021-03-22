@@ -29,6 +29,7 @@ const technologies = {
   express: technology("Express", "https://expressjs.com/"),
   ejs: technology("EJS", "https://ejs.co/"),
   nextjs: technology("NextJS", "https://nextjs.org/"),
+  assembly: technology("Assembly", "https://en.wikipedia.org/wiki/Assembly_language"),
 } as const;
 
 type TechnologyName = keyof typeof technologies;
@@ -79,7 +80,7 @@ function Card(attrs: {title: string, body: JSX.Element, url: string, img: string
     <div class="p-4 flex flex-col z-10 relative">
       <a class="font-black hover:underline" href={attrs.url} target="_blank" rel="noreferrer noopener">{attrs.title}</a>
       <div class="mb-2 mt-1">{attrs.body}</div>
-      <div class="font-light text-sm">{arraymix(attrs.technologies.map(tech => <Technology tech={tech} />), () => " • ")}</div>
+      <div class="font-light text-sm">{arraymix(attrs.technologies.map(tech => <Technology tech={tech} key={tech} />), () => " • ")}</div>
     </div>
   </div>;
 }
@@ -209,7 +210,7 @@ export default function Home() {
               </>}
               img={"/icons/progsim.png"}
               img_size={[485, 315]}
-              technologies={["javascript"]}
+              technologies={["javascript", "assembly"]}
             />
             <Card
               title="Earlygame Run"
