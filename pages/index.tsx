@@ -303,6 +303,16 @@ export default function Home() {
               technologies={["zig", "sdl", "tree_sitter"]}
             />
             <Card
+              title="ZigMD"
+              url="https://github.com/pfgithub/zigmd"
+              body={<>
+                A testing ground for immediate mode GUI and text editors and various other things.
+              </>}
+              img={"/icons/zigmd.png"}
+              img_size={[636, 390]}
+              technologies={["zig", "sdl"]}
+            />
+            <Card
               title="Windowsystem"
               url="https://windowsystem.pfg.pw/"
               body={<>
