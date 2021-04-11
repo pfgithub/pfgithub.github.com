@@ -50,6 +50,7 @@ function Technology(attrs: {tech: TechnologyName}): JSX.Element {
 }
 
 function Card(attrs: {title: string, body: JSX.Element, url: string, img: string, img_size: [w: number, h: number], img_pixel?: boolean, technologies: TechnologyName[]}): JSX.Element {
+  // TODO spa navigation if url.startsWith("/")
   return <div class="my-2 flex flex-col sm:flex-row hover:shadow-md bg-gray-100 hover:bg-white" onClick={e => {
     e.stopPropagation();
     let target_parent = e.target as Node | null;
@@ -344,6 +345,16 @@ export default function Home() {
               img={"/icons/sitepages.png"}
               img_size={[341, 165]}
               technologies={["javascript", "vanilla_js", "μhtml"]}
+            />
+            <Card
+              title="Tools"
+              url="/tools"
+              body={<>
+                Some helpful tools, like sitepages but with more effort put into each.
+              </>}
+              img={"/icons/tools.png"}
+              img_size={[308, 202]}
+              technologies={["nextjs", "typescript", "tailwind"]}
             />
           </div>
           <h2 class="font-black text-3xl mb-3 mt-10">Links</h2>
