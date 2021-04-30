@@ -1,6 +1,7 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
 import Image from 'next/image';
+import Link from 'next/link';
+import { LinkOut } from '../src/link_out';
 
 function technology(name: string, link: string): Technology {
   return {name, link};
@@ -86,12 +87,16 @@ function Card(attrs: {title: string, body: JSX.Element, url: string, img: string
   </div>;
 }
 
-function LinkOut(attrs: {href: string, children: React.ReactNode}): JSX.Element {
-  return (
-    <a href={attrs.href} class="hover:underline text-blue-900" target="_blank" rel="noreferrer noopener">
-      {attrs.children}
-    </a>
-  );
+function NavbarLink(props: {children: React.ReactNode, href: string}) {
+return <Link href={props.href}><a class="text-blue-700 hover:underline">{props.children}</a></Link>;
+}
+function Navbar() {
+  return <div>
+    <NavbarLink href="/about">about</NavbarLink>{" · "}
+    <NavbarLink href="/tools">tools</NavbarLink>{" · "}
+    <NavbarLink href="/now">now</NavbarLink>{" · "}
+    <NavbarLink href="/blog">blog</NavbarLink>
+  </div>;
 }
 
 export default function Home() {
@@ -109,6 +114,7 @@ export default function Home() {
       <div class="max-w-screen-lg mx-auto">
         <div class="p-4">
           <div class="w-full"></div>
+          <Navbar />
           <h2 class="font-black text-3xl my-3">Current Projects</h2>
           <p class="mb-3">Large projects I'm working on right now</p>
           <div class="flex flex-col">
