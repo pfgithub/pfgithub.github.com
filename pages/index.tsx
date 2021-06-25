@@ -31,6 +31,7 @@ const technologies = {
   ejs: technology("EJS", "https://ejs.co/"),
   nextjs: technology("NextJS", "https://nextjs.org/"),
   assembly: technology("Assembly", "https://en.wikipedia.org/wiki/Assembly_language"),
+  solid: technology("SOLID", "https://solidjs.com/"),
 } as const;
 
 type TechnologyName = keyof typeof technologies;
@@ -144,7 +145,7 @@ export default function Home() {
               </>}
               img={"/icons/threadreader.png"}
               img_size={[648, 408]}
-              technologies={["typescript", "tailwind", "webpack", "vanilla_js"]}
+              technologies={["solid", "typescript", "tailwind", "webpack", "vanilla_js"]}
             />
           </div>
           <h2 class="font-black text-3xl mb-3 mt-10">Past Projects</h2>
