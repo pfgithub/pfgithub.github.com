@@ -173,18 +173,6 @@ export default function Home() {
             or maintain.
           </p>
           <div class="flex flex-col">
-            {/*<Card
-              title="CPU"
-              url="https://github.com/pfgithub/cpu/"
-              body={<>
-                A simple 64-bit CPU made from scratch out of nor gates featuring two{" "}
-                permission levels, interrupts, and page table support. Also contains a simple{" "}
-                OS that can run untrusted user code safely.
-              </>}
-              img={"/icons/cpu.png"}
-              img_size={[420, 219]}
-              technologies={["typescript", "zig", "assembly"]}
-            />*/null}
             <Card
               title="Clicker"
               url="https://clicker.pfg.pw"
@@ -253,6 +241,16 @@ export default function Home() {
               img={"/icons/masc.png"}
               img_size={[324, 174]}
               technologies={["typescript"]}
+            />
+            <Card
+              title="CPU"
+              url="https://github.com/pfgithub/cpu/"
+              body={<>
+                A simple 64-bit CPU made from scratch out of nor gates and an assembly language to program for it.
+              </>}
+              img={"/icons/cpu.png"}
+              img_size={[420, 219]}
+              technologies={["typescript", "zig", "assembly"]}
             />
             <Card
               title="Leaderboard History"
