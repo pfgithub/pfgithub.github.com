@@ -31,7 +31,7 @@ const technologies = {
   ejs: technology("EJS", "https://ejs.co/"),
   nextjs: technology("NextJS", "https://nextjs.org/"),
   assembly: technology("Assembly", "https://en.wikipedia.org/wiki/Assembly_language"),
-  solid: technology("SOLID", "https://solidjs.com/"),
+  solid: technology("SolidJS", "https://solidjs.com/"),
 } as const;
 
 type TechnologyName = keyof typeof technologies;
