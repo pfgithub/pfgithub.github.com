@@ -126,6 +126,9 @@ export default function ProjectPage(props: Props): JSX.Element {
             style={{
                 backgroundImage: "url("+JSON.stringify(props.project.img[2])+")",
             }}
+            class="bg-fixed" // they added background attachment they could have made it a % at the same time
+            // but no. the only way to do pure css parallax is to disable body scrolling, which is bad on
+            // mobile because it means the url bar never auto hides
         ><div class="bg-gray-800 bg-opacity-90 text-gray-300">
             <HeaderButtons title={props.project.title} parent={{ name: "pfg's homepage", href: "/" }} />
             <CenteredContent>
