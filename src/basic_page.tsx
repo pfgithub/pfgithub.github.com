@@ -45,11 +45,11 @@ export function BasicPage(props: {
     <header class="bg-gray-800">
       <HeaderButtons parent={props.parent} title={props.title} />
     </header>
-    <div class="bg-gray-300 min-h-screen">
+    <main class="bg-gray-300 min-h-screen">
       <CenteredContent>
         {props.children}
       </CenteredContent>
-    </div>
+    </main>
     <Footer />
   </>;
 }

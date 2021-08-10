@@ -125,14 +125,14 @@ export default function Home() {
         <h1 class="w-max text-5xl font-black text-white">pfg's homepage</h1>
       </div>
     </header>
-    <div class="bg-gray-300 min-h-screen">
+    <main class="bg-gray-300 min-h-screen">
       <CenteredContent>
         <div class="w-full"></div>
         <Navbar />
         <Categories categories={categories} />
         <div class="mb-4"></div>
       </CenteredContent>
-    </div>
+    </main>
     <footer class="bg-gray-600 text-white">
       <CenteredContent>
         This page was made with <span class="underline"><Technology tech="nextjs" /></span>,{" "}

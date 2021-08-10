@@ -145,7 +145,7 @@ export default function ProjectPage(props: Props): JSX.Element {
                 </div>
             </CenteredContent>
         </div></header>
-        <div class="bg-gray-300 min-h-screen">
+        <main class="bg-gray-300 min-h-screen">
             <CenteredContent>
                 <p class="mb-3">
                     <RichtextSpans els={props.project.body} />
@@ -157,7 +157,7 @@ export default function ProjectPage(props: Props): JSX.Element {
                     />
                 )}</ShowCond>
             </CenteredContent>
-        </div>
+        </main>
         <Footer />
     </>;
 }
