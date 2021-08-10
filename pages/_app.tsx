@@ -1,7 +1,8 @@
-import "tailwindcss/tailwind.css";
 import * as React from 'react'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import 'windi.css'
+import "./markdown_body.css";
 
 export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (

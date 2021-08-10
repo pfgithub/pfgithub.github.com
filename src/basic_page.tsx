@@ -1,8 +1,34 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+
+export function CenteredContent(props: {children: React.ReactNode}): JSX.Element {
+  // maybe don't p-4 by default?
+  return <div class="max-w-screen-lg mx-auto">
+    <div class="p-4">
+      {props.children}
+    </div>
+  </div>;
+}
+
+export function Footer(): JSX.Element {
+  return <footer class="bg-gray-600 text-white">
+    <CenteredContent>
+      <a href={"https://github.com/pfgithub/pfgithub.github.com/"} target="_blank" rel="noreferrer noopener" class="underline">Source</a> ·{" "}
+      <a href={"https://github.com/pfgithub/pfgithub.github.com/"} target="_blank" rel="noreferrer noopener" class="underline">Edit</a>
+    </CenteredContent>
+  </footer>;
+}
+
+export function HeaderButtons(props: {
+  parent: {href: string, name: string},
+  title: string,
+}): JSX.Element {
+  return  <div class="p-4 flex flex-col sm:flex-row">
+    <Link href={props.parent.href}><a class="flex-1 text-white hover:underline flex justify-items-start items-center">&lt; {props.parent.name}</a></Link>
+    <h1 class="flex-0 w-max text-2xl font-bold text-white flex justify-items-start items-center">{props.title}</h1>
+    <div class="flex-1 flex justify-items-start items-center"></div>
+  </div>;
+}
 
 export function BasicPage(props: {
   title: string, 
@@ -16,27 +42,14 @@ export function BasicPage(props: {
       <title>{props.title}</title>
       <meta name="description" content={props.meta_desc} />
     </Head>
-    <header class="bg-gray-800 from-green-700 to-blue-600">
-      <div class="px-4 py-4 flex flex-col sm:flex-row">
-        <Link href={props.parent.href}><a class="flex-1 text-white hover:underline flex justify-items-start items-center">&lt; {props.parent.name}</a></Link>
-        <h1 class="flex-0 w-max text-2xl font-bold text-white flex justify-items-start items-center">{props.title}</h1>
-        <div class="flex-1 flex justify-items-start items-center"></div>
-      </div>
+    <header class="bg-gray-800">
+      <HeaderButtons parent={props.parent} title={props.title} />
     </header>
     <div class="bg-gray-300 min-h-screen">
-      <div class="max-w-screen-lg mx-auto">
-        <div class="p-4">
-          {props.children}
-        </div>
-      </div>
+      <CenteredContent>
+        {props.children}
+      </CenteredContent>
     </div>
-    <footer class="bg-gray-600 text-white">
-      <div class="max-w-screen-lg mx-auto">
-        <div class="p-4">
-          <a href={"https://github.com/pfgithub/pfgithub.github.com/blob/main"+props.filename} target="_blank" rel="noreferrer noopener" class="underline">Source</a> ·{" "}
-          <a href={"https://github.com/pfgithub/pfgithub.github.com/edit/main"+props.filename} target="_blank" rel="noreferrer noopener" class="underline">Edit</a>
-        </div>
-      </div>
-    </footer>
+    <Footer />
   </>;
 }
