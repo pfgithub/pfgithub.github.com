@@ -371,7 +371,7 @@ export const projects = projectsList({
         body: [
             "Some helpful tools, like sitepages but with more effort put into each.",
         ],
-        technologies: ["nextjs", "typescript", "tailwind"],
+        technologies: ["nextjs", "typescript", "windi"],
 
         github: null,
     },

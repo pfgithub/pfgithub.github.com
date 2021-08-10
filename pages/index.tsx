@@ -137,7 +137,7 @@ export default function Home() {
       <CenteredContent>
         This page was made with <span class="underline"><Technology tech="nextjs" /></span>,{" "}
         <span class="underline"><Technology tech="typescript" /></span>,{" "}
-        and <span class="underline"><Technology tech="tailwind" /></span>.{" "}
+        and <span class="underline"><Technology tech="windi" /></span>.{" "}
         <div class="mb-2"></div>
         <a href="https://github.com/pfgithub/pfgithub.github.com" target="_blank" rel="noreferrer noopener" class="underline">Source</a> ·{" "}
         <a href="https://github.com/pfgithub/pfgithub.github.com/edit/main/pages/index.tsx" target="_blank" rel="noreferrer noopener" class="underline">Edit</a>
