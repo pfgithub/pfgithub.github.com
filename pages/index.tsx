@@ -95,18 +95,6 @@ function Card(attrs: {id: string, project: Project}): JSX.Element {
   </div>;
 }
 
-function NavbarLink(props: {children: React.ReactNode, href: string}) {
-  return <Link href={props.href}><a class="text-blue-700 hover:underline">{props.children}</a></Link>;
-}
-function Navbar() {
-  return <div>
-    <NavbarLink href="/about">about</NavbarLink>{" · "}
-    <NavbarLink href="/tools">tools</NavbarLink>{" · "}
-    <NavbarLink href="/now">now</NavbarLink>{" · "}
-    <NavbarLink href="/blog">blog</NavbarLink>
-  </div>;
-}
-
 function Categories(props: {categories: Category[]}) {
   return <For each={props.categories}>{(category, i) => <React.Fragment key={i()}>
     <h2 class="font-black text-3xl my-3">{category.title}</h2>
@@ -140,8 +128,6 @@ export default function Home() {
     </header>
     <main class="bg-gray-300 min-h-screen">
       <CenteredContent>
-        <div class="w-full"></div>
-        <Navbar />
         <Categories categories={categories} />
         <div class="mb-4"></div>
       </CenteredContent>
