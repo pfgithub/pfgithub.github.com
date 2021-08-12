@@ -206,7 +206,7 @@ export const projects = projectsList({
         },
     },
     masc: {
-        url: "https://github.com/pfgithub/masc",
+        url: "https://pfg.pw/masc",
         img: [324, 174, "/icons/masc.png"],
         title: "masc",
         body: [

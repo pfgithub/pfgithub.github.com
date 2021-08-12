@@ -6,7 +6,8 @@ import { BasicPage, CenteredContent, Footer, HeaderButtons } from "../../src/bas
 import { Project, ProjectID, projects, RichtextSpan } from "../../src/projects";
 import { RichtextSpans } from "../../src/richtext";
 import { ShowCond } from "../../src/solid";
-import {transform, h, getAttr, hasClass, withAttr} from 'html-ast-transform';
+// import {transform, h, getAttr, hasClass, withAttr} from 'html-ast-transform';
+import parse5 from "parse5";
 
 function baseurl(base: string, url: string) {
     try {
@@ -18,31 +19,39 @@ function baseurl(base: string, url: string) {
 }
 
 async function parseGFM(repo: string, branch: string, text: string): Promise<string> {
-    return transform(await fetch("https://api.github.com/markdown", {
+    const in_html = await fetch("https://api.github.com/markdown", {
         method: "POST",
         body: JSON.stringify({
             text: text,
             mode: "markdown",
         }),
-    }).then(r => r.text()), {
-        replaceTags: {
-            a: node => {
-                const href = getAttr(node, "href");
-                if(href) node = withAttr(node, "href",
-                    baseurl("https://github.com/"+repo+"/blob/"+branch+"/", href),
-                );
-                node = withAttr(node, "target", "_blank");
-                node = withAttr(node, "rel", "noopener noreferrer");
-                return node;
-            },
-            img: node => {
-                const src = getAttr(node, "src");
-                if(src) return withAttr(node, "src",
-                    baseurl("https://raw.githubusercontent.com/"+repo+"/"+branch+"/", src),
-                );
+    }).then(r => r.text());
+
+    const html = parse5.parse(in_html);
+
+    const processNode = (node: parse5.Node) => {
+        (() => {
+            if(node.nodeName === "A") {
+                const href = node.attrs.find(attr => attr.name === "href");
+                if(!href) return;
+                href.value = baseurl("https://github.com/"+repo+"/blob/"+branch+"/", href.value);
+                node.attrs = node.attrs.filter(attr => attr.name !== "target" && attr.name !== "rel");
+                node.attrs.push({name: "target", value: "_blank"});
+                node.attrs.push({name: "rel", value: "noopener noreferrer"});
             }
-        },
-    });
+            if(node.nodeName === "IMG") {
+                const src = node.attrs.find(attr => attr.name === "src");
+                if(!src) return;
+                src.value = baseurl("https://raw.githubusercontent.com/"+repo+"/"+branch+"/", src.value);
+            }
+        })
+        if('childNodes' in node) {
+            node.childNodes.forEach(processNode);
+        }
+    };
+    processNode(html);
+
+    return parse5.serialize(html);
 }
 
 type Query = {
