@@ -34,7 +34,6 @@ export const technologies = {
   } as const;
 
 export type Project = {
-    url: string,
     img: [w: number, h: number, url: string, opts?: {pixel: boolean}],
     title: string,
     body: Richtext,
@@ -43,6 +42,10 @@ export type Project = {
     github: null | {
         repo: string,
         branch: string,
+    },
+    site: null | {
+        kind: "informational" | "demo" | "external",
+        url: string,
     },
     // web_demo: url | null,
     // readme: url | null,
@@ -75,7 +78,6 @@ function projectsList<T extends string>(v: {[key in T]: Project}): {[key in T]: 
 
 export const projects = projectsList({
     interpunct_bot: {
-        url: "https://interpunct.info",
         img: [960, 600, "/icons/interpunct_img.png"],
         title: "inter·punct bot",
         body: [
@@ -91,9 +93,12 @@ export const projects = projectsList({
             repo: "pfgithub/interpunctbot",
             branch: "master",
         },
+        site: {
+            kind: "informational",
+            url: "https://interpunct.info",
+        },
     },
     threadreader: {
-        url: "https://thread.pfg.pw",
         img: [648, 408, "/icons/threadreader.png"],
         title: "ThreadReader",
         body: [
@@ -109,10 +114,13 @@ export const projects = projectsList({
             repo: "pfgithub/threadclient",
             branch: "main",
         },
+        site: {
+            kind: "informational",
+            url: "https://thread.pfg.pw",
+        },
     },
 
     scpl: {
-        url: "https://scpl.dev",
         img: [519, 328, "/icons/scpl.png"],
         title: "ScPL",
         body: [
@@ -128,9 +136,12 @@ export const projects = projectsList({
             repo: "pfgithub/scpl",
             branch: "master",
         },
+        site: {
+            kind: "informational",
+            url: "https://scpl.dev",
+        },
     },
     clicker: {
-        url: "https://clicker.pfg.pw",
         img: [924, 437, "/icons/clicker.png"],
         title: "Clicker",
         body: [
@@ -143,9 +154,12 @@ export const projects = projectsList({
             repo: "pfgithub/clicker",
             branch: "master",
         },
+        site: {
+            kind: "demo",
+            url: "https://clicker.pfg.pw",
+        },
     },
     mapexplorer: {
-        url: "https://pfg.pw/mapexplorer",
         img: [867, 490, "/icons/mapexplorer.png", {pixel: true}],
         title: "Mapexplorer",
         body: [
@@ -159,9 +173,12 @@ export const projects = projectsList({
             repo: "pfgithub/mapexplorer",
             branch: "master",
         },
+        site: {
+            kind: "demo",
+            url: "https://pfg.pw/mapexplorer",
+        },
     },
     musicplayer: {
-        url: "https://github.com/pfgithub/electron-music-player",
         img: [658, 377, "/icons/musicplayer.png"],
         title: "electron-music-player",
         body: [
@@ -174,9 +191,9 @@ export const projects = projectsList({
             repo: "pfgithub/electron-music-player",
             branch: "master",
         },
+        site: null,
     },
     progsim: {
-        url: "https://pfg.pw/progsim/progsim",
         img: [485, 315, "/icons/progsim.png"],
         title: "progsim",
         body: [
@@ -188,9 +205,12 @@ export const projects = projectsList({
             repo: "pfgithub/progsim",
             branch: "master",
         },
+        site: {
+            kind: "demo",
+            url: "https://pfg.pw/progsim/progsim",
+        },
     },
     'earlygame-run': {
-        url: "https://mods.factorio.com/mod/earlygame-run",
         img: [460, 256, "/icons/earlygame_run.png"],
         title: "Earlygame Run",
         body: [
@@ -204,9 +224,12 @@ export const projects = projectsList({
             repo: "pfgithub/earlygame-run",
             branch: "master",
         },
+        site: {
+            kind: "external",
+            url: "https://mods.factorio.com/mod/earlygame-run",
+        },
     },
     masc: {
-        url: "https://pfg.pw/masc",
         img: [324, 174, "/icons/masc.png"],
         title: "masc",
         body: [
@@ -218,9 +241,12 @@ export const projects = projectsList({
             repo: "pfgithub/masc",
             branch: "master",
         },
+        site: {
+            kind: "demo",
+            url: "https://pfg.pw/masc",
+        },
     },
     cpu: {
-        url: "https://github.com/pfgithub/cpu",
         img: [420, 219, "/icons/cpu.png"],
         title: "CPU",
         body: [
@@ -232,9 +258,9 @@ export const projects = projectsList({
             repo: "pfgithub/cpu",
             branch: "master",
         },
+        site: null,
     },
     travelersleaderboard: {
-        url: "https://pfg.pw/travelersleaderboard/player",
         img: [577, 352, "/icons/travelersleaderboard.png"],
         title: "Leaderboard History",
         body: [
@@ -247,9 +273,12 @@ export const projects = projectsList({
             repo: "pfgithub/travelersleaderboard",
             branch: "master",
         },
+        site: {
+            kind: "demo",
+            url: "https://pfg.pw/travelersleaderboard/player",
+        },
     },
     zcho: {
-        url: "https://github.com/pfgithub/zcho",
         img: [425, 211, "/icons/jsonexplorer.png"],
         title: "Zcho",
         body: [
@@ -263,9 +292,9 @@ export const projects = projectsList({
             repo: "pfgithub/zcho",
             branch: "master",
         },
+        site: null,
     },
     travelersapi: {
-        url: "https://www.npmjs.com/package/travelersapi",
         img: [760, 405, "/icons/travelersapi.png"],
         title: "Travelers API",
         body: [
@@ -278,9 +307,12 @@ export const projects = projectsList({
             repo: "pfgithub/travelersapi",
             branch: "master",
         },
+        site: {
+            kind: "external",
+            url: "https://www.npmjs.com/package/travelersapi",
+        }
     },
     mousebuttons: {
-        url: "https://github.com/pfgithub/mousebuttons",
         img: [91, 67, "/icons/mousebuttons.png"],
         title: "Mousebuttons",
         body: [
@@ -295,9 +327,9 @@ export const projects = projectsList({
             repo: "pfgithub/mousebuttons",
             branch: "master",
         },
+        site: null,
     },
     filetransfer: {
-        url: "https://github.com/pfgithub/filetransfer",
         img: [566, 283, "/icons/filetransfer.png"],
         title: "Filetransfer",
         body: [
@@ -309,9 +341,9 @@ export const projects = projectsList({
             repo: "pfgithub/filetransfer",
             branch: "master",
         },
+        site: null,
     },
     pixelcode: {
-        url: "https://github.com/pfgithub/pixelcode",
         img: [347, 107, "/icons/pixelcode.png"],
         title: "Pixelcode",
         body: [
@@ -324,9 +356,9 @@ export const projects = projectsList({
             repo: "pfgithub/pixelcode",
             branch: "master",
         },
+        site: null,
     },
     zigmd: {
-        url: "https://github.com/pfgithub/zigmd",
         img: [636, 390, "/icons/zigmd.png"],
         title: "ZigMD",
         body: [
@@ -338,9 +370,9 @@ export const projects = projectsList({
             repo: "pfgithub/zigmd",
             branch: "master",
         },
+        site: null,
     },
     windowsystem: {
-        url: "https://windowsystem.pfg.pw/",
         img: [559, 312, "/icons/windowsystem.png"],
         title: "Windowsystem",
         body: [
@@ -352,9 +384,12 @@ export const projects = projectsList({
             repo: "pfgithub/windowsystem",
             branch: "master",
         },
+        site: {
+            kind: "demo",
+            url: "https://windowsystem.pfg.pw/",
+        },
     },
     sitepages: {
-        url: "https://pfg.pw/sitepages",
         img: [341, 165, "/icons/sitepages.png"],
         title: "Sitepages",
         body: [
@@ -363,9 +398,12 @@ export const projects = projectsList({
         technologies: ["javascript", "vanilla_js", "μhtml"],
 
         github: null,
+        site: {
+            kind: "informational",
+            url: "https://pfg.pw/sitepages",
+        },
     },
     tools: {
-        url: "/tools",
         img: [308, 202, "/icons/tools.png"],
         title: "Tools",
         body: [
@@ -374,10 +412,13 @@ export const projects = projectsList({
         technologies: ["nextjs", "typescript", "windi"],
 
         github: null,
+        site: {
+            kind: "informational",
+            url: "/tools",
+        },
     },
 
     github: {
-        url: "https://github.com/pfgithub",
         img: [744, 441, "/icons/github.png"],
         title: "Github",
         body: [
@@ -386,6 +427,10 @@ export const projects = projectsList({
         technologies: [],
 
         github: null,
+        site: {
+            kind: "external",
+            url: "https://github.com/pfgithub",
+        },
     },
 });
 

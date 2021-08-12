@@ -16,7 +16,15 @@ function Technology(attrs: {tech: TechnologyName}): JSX.Element {
 
 function Card(attrs: {id: string, project: Project}): JSX.Element {
   const router = useRouter();
-  const target_url = () => "/projects/"+attrs.id;
+  const targetUrl = () => {
+    if(!attrs.project.github && attrs.project.site) {
+      return attrs.project.site.url;
+    }
+    return "/projects/"+attrs.id;
+  };
+  const aTarget = () => {
+    return targetUrl().startsWith("/") ? "" : "_blank";
+  };
 
   // TODO spa navigation if url.startsWith("/")
   return <div class="my-2 flex flex-col sm:flex-row hover:shadow-md bg-gray-100 hover:bg-white" onClick={e => {
@@ -41,15 +49,20 @@ function Card(attrs: {id: string, project: Project}): JSX.Element {
       target_parent = target_parent.parentNode;
     }
     e.stopPropagation();
+    const target = targetUrl();
     if(e.ctrlKey || e.metaKey || e.altKey) {
-      window.open(target_url());
+      window.open(target);
     }else{
-      router.push(target_url());
+      if(target.startsWith("/")) {
+        router.push(target);
+      }else{
+        window.open(target);
+      }
     }
   }}>
     <div class="sm:w-40 sm:h-auto flex-none overflow-hidden" aria-hidden="true">
-      <Link href={target_url()}>
-        <a tabIndex={-1}>
+      <Link href={targetUrl()}>
+        <a rel="noreferrer noopener" target={aTarget()} tabIndex={-1}>
           <img
             src={attrs.project.img[2]}
             width={attrs.project.img[0]}
@@ -64,8 +77,8 @@ function Card(attrs: {id: string, project: Project}): JSX.Element {
       </Link>
     </div>
     <div class="p-4 flex flex-col z-10 relative">
-      <Link href={target_url()}>
-        <a class="font-black hover:underline">
+      <Link href={targetUrl()}>
+        <a rel="noreferrer noopener" target={aTarget()} class="font-black hover:underline">
           {attrs.project.title}
         </a>
       </Link>
