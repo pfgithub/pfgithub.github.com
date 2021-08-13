@@ -121,7 +121,7 @@ export default function Home() {
       <title>pfg's homepage</title>
       <meta name="description" content="pfg's homepage website that is a homepage." />
     </Head>
-    <header class="bg-gradient-to-br from-green-700 to-blue-600">
+    <header class="bg-gradient-to-br from-green-700 to-blue-600 bg-fixed">
       <div class="px-4 py-16 sm:py-32 flex flex-row justify-center">
         <h1 class="w-max text-5xl font-black text-white">pfg's homepage</h1>
       </div>
