@@ -31,7 +31,7 @@ async function parseGFM(repo: string, branch: string, text: string): Promise<str
 
     const processNode = (node: parse5.Node) => {
         (() => {
-            if(node.nodeName === "A") {
+            if(node.nodeName === "a") {
                 const href = node.attrs.find(attr => attr.name === "href");
                 if(!href) return;
                 href.value = baseurl("https://github.com/"+repo+"/blob/"+branch+"/", href.value);
@@ -39,12 +39,12 @@ async function parseGFM(repo: string, branch: string, text: string): Promise<str
                 node.attrs.push({name: "target", value: "_blank"});
                 node.attrs.push({name: "rel", value: "noopener noreferrer"});
             }
-            if(node.nodeName === "IMG") {
+            if(node.nodeName === "img") {
                 const src = node.attrs.find(attr => attr.name === "src");
                 if(!src) return;
                 src.value = baseurl("https://raw.githubusercontent.com/"+repo+"/"+branch+"/", src.value);
             }
-        })
+        })();
         if('childNodes' in node) {
             node.childNodes.forEach(processNode);
         }
