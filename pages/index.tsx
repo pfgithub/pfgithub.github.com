@@ -77,11 +77,11 @@ function Card(attrs: {id: string, project: Project}): JSX.Element {
       </Link>
     </div>
     <div class="p-4 flex flex-col z-10 relative">
-      <Link href={targetUrl()}>
+      <h3><Link href={targetUrl()}>
         <a rel="noreferrer noopener" target={aTarget()} class="font-black hover:underline">
           {attrs.project.title}
         </a>
-      </Link>
+      </Link></h3>
       <div class="mb-2 mt-1">
         <RichtextSpans els={attrs.project.body} />
       </div>

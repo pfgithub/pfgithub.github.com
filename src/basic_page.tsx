@@ -24,7 +24,11 @@ export function HeaderButtons(props: {
   title: string,
 }): JSX.Element {
   return  <div class="p-4 flex flex-col sm:flex-row">
-    <Link href={props.parent.href}><a class="flex-1 text-white hover:underline flex justify-items-start items-center">&lt; {props.parent.name}</a></Link>
+    <Link href={props.parent.href}>
+      <a class="flex-1 text-white hover:underline inline-block">
+        <span aria-label="Back to" role="img">&lt;</span> <span>{props.parent.name}</span>
+      </a>
+    </Link>
     <h1 class="flex-0 w-max text-2xl font-bold text-white flex justify-items-start items-center">{props.title}</h1>
     <div class="flex-1 flex justify-items-start items-center"></div>
   </div>;

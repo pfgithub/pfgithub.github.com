@@ -110,6 +110,7 @@ function getText(els: RichtextSpan[]): string {
 function ExternalIcon(): JSX.Element {
     return <div class="inline-block align-bottom text-white">
         <svg width="24px" height="24px" viewBox="0 0 24 24">
+            <title>External</title>
             <g strokeWidth="2.1" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
                 <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
@@ -120,6 +121,7 @@ function ExternalIcon(): JSX.Element {
 function GithubIcon(): JSX.Element {
     return <div class="inline-block align-bottom text-white">
         <svg width="24px" height="24px" role="img" viewBox="0 0 24 24">
+            <title>Github</title>
             <path d={"M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 "
             +"11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724"
             +"-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-"
