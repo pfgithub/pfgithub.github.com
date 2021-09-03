@@ -31,7 +31,15 @@ export const technologies = {
     solid: technology("SolidJS", "https://solidjs.com/"),
     canvas: technology("Canvas", "https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API"),
     wasm: technology("WebAssembly", "https://webassembly.org/"),
-  } as const;
+    vite: technology("Vite", "https://vitejs.dev/"),
+    firebase: technology("Firebase", "https://firebase.google.com/"),
+} as const;
+
+export type GithubInfo = {
+    repo: string,
+    branch: string,
+    file: string,
+};
 
 export type Project = {
     img: [w: number, h: number, url: string, opts?: {pixel: boolean}],
@@ -39,10 +47,7 @@ export type Project = {
     body: Richtext,
     technologies: TechnologyName[],
 
-    github: null | {
-        repo: string,
-        branch: string,
-    },
+    github: null | GithubInfo,
     site: null | {
         kind: "informational" | "demo" | "external",
         url: string,
@@ -92,6 +97,7 @@ export const projects = projectsList({
         github: {
             repo: "pfgithub/interpunctbot",
             branch: "master",
+            file: "README.md",
         },
         site: {
             kind: "informational",
@@ -108,11 +114,12 @@ export const projects = projectsList({
             "the best features of both old.reddit and new.reddit and providing a tree ",
             "view for Mastodon."
         ],
-        technologies: ["solid", "typescript", "windi", "webpack", "vanilla_js", "wasm"],
+        technologies: ["solid", "typescript", "windi", "vite", "vanilla_js", "wasm"],
 
         github: {
             repo: "pfgithub/threadclient",
             branch: "main",
+            file: "README.md",
         },
         site: {
             kind: "informational",
@@ -135,6 +142,7 @@ export const projects = projectsList({
         github: {
             repo: "pfgithub/scpl",
             branch: "master",
+            file: "README.md",
         },
         site: {
             kind: "informational",
@@ -153,6 +161,7 @@ export const projects = projectsList({
         github: {
             repo: "pfgithub/clicker",
             branch: "master",
+            file: "README.md",
         },
         site: {
             kind: "demo",
@@ -172,6 +181,7 @@ export const projects = projectsList({
         github: {
             repo: "pfgithub/mapexplorer",
             branch: "master",
+            file: "README.md",
         },
         site: {
             kind: "demo",
@@ -190,6 +200,7 @@ export const projects = projectsList({
         github: {
             repo: "pfgithub/electron-music-player",
             branch: "master",
+            file: "README.md",
         },
         site: null,
     },
@@ -204,6 +215,7 @@ export const projects = projectsList({
         github: {
             repo: "pfgithub/progsim",
             branch: "master",
+            file: "README.md",
         },
         site: {
             kind: "demo",
@@ -223,6 +235,7 @@ export const projects = projectsList({
         github: {
             repo: "pfgithub/earlygame-run",
             branch: "master",
+            file: "README.md",
         },
         site: {
             kind: "external",
@@ -240,6 +253,7 @@ export const projects = projectsList({
         github: {
             repo: "pfgithub/masc",
             branch: "master",
+            file: "README.md",
         },
         site: {
             kind: "demo",
@@ -257,6 +271,7 @@ export const projects = projectsList({
         github: {
             repo: "pfgithub/cpu",
             branch: "master",
+            file: "README.md",
         },
         site: null,
     },
@@ -272,6 +287,7 @@ export const projects = projectsList({
         github: {
             repo: "pfgithub/travelersleaderboard",
             branch: "master",
+            file: "README.md",
         },
         site: {
             kind: "demo",
@@ -291,6 +307,7 @@ export const projects = projectsList({
         github: {
             repo: "pfgithub/zcho",
             branch: "master",
+            file: "README.md",
         },
         site: null,
     },
@@ -306,6 +323,7 @@ export const projects = projectsList({
         github: {
             repo: "pfgithub/travelersapi",
             branch: "master",
+            file: "README.md",
         },
         site: {
             kind: "external",
@@ -326,6 +344,7 @@ export const projects = projectsList({
         github: {
             repo: "pfgithub/mousebuttons",
             branch: "master",
+            file: "README.md",
         },
         site: null,
     },
@@ -340,6 +359,7 @@ export const projects = projectsList({
         github: {
             repo: "pfgithub/filetransfer",
             branch: "master",
+            file: "README.md",
         },
         site: null,
     },
@@ -355,6 +375,7 @@ export const projects = projectsList({
         github: {
             repo: "pfgithub/pixelcode",
             branch: "master",
+            file: "README.md",
         },
         site: null,
     },
@@ -369,6 +390,7 @@ export const projects = projectsList({
         github: {
             repo: "pfgithub/zigmd",
             branch: "master",
+            file: "README.md",
         },
         site: null,
     },
@@ -383,6 +405,7 @@ export const projects = projectsList({
         github: {
             repo: "pfgithub/windowsystem",
             branch: "master",
+            file: "README.md",
         },
         site: {
             kind: "demo",
@@ -415,6 +438,24 @@ export const projects = projectsList({
         site: {
             kind: "informational",
             url: "/tools",
+        },
+    },
+    animator: {
+        img: [835, 496, "/icons/animator.png"],
+        title: "Animator",
+        body: [
+            "A simple collaborative animation program for animating over audio",
+        ],
+        technologies: ["firebase", "solid", "windi", "vite", "typescript"],
+
+        github: {
+            repo: "pfgithub/threadclient",
+            branch: "main",
+            file: "packages/animator-ui-web/README.md"
+        },
+        site: {
+            kind: "demo",
+            url: "https://animator.pfg.pw/",
         },
     },
 
@@ -458,6 +499,7 @@ export const categories: Category[] = [
         ],
         projects: [
             "clicker",
+            "animator",
             "mapexplorer",
             "masc",
             "tools",

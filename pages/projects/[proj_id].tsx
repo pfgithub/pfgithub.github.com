@@ -3,9 +3,9 @@ import { GetStaticPaths, GetStaticProps, GetStaticPropsResult } from "next";
 import Head from "next/head";
 import React from "react";
 import { BasicPage, CenteredContent, Footer, HeaderButtons } from "../../src/basic_page";
-import { Project, ProjectID, projects, RichtextSpan } from "../../src/projects";
+import { GithubInfo, Project, ProjectID, projects, RichtextSpan, technologies, TechnologyName } from "../../src/projects";
 import { RichtextSpans } from "../../src/richtext";
-import { ShowCond } from "../../src/solid";
+import { For, ShowBool, ShowCond } from "../../src/solid";
 // import {transform, h, getAttr, hasClass, withAttr} from 'html-ast-transform';
 import parse5 from "parse5";
 
@@ -18,7 +18,7 @@ function baseurl(base: string, url: string) {
     }
 }
 
-async function parseGFM(repo: string, branch: string, text: string): Promise<string> {
+async function parseGFM(gh: GithubInfo, text: string): Promise<string> {
     const in_html = await fetch("https://api.github.com/markdown", {
         method: "POST",
         body: JSON.stringify({
@@ -29,12 +29,14 @@ async function parseGFM(repo: string, branch: string, text: string): Promise<str
 
     const html = parse5.parse(in_html);
 
+    // TODO "/"+gh.file.split("/")[0..-1].join("/")
+
     const processNode = (node: parse5.Node) => {
         (() => {
             if(node.nodeName === "a") {
                 const href = node.attrs.find(attr => attr.name === "href");
                 if(!href) return;
-                href.value = baseurl("https://github.com/"+repo+"/blob/"+branch+"/", href.value);
+                href.value = baseurl("https://github.com/"+gh.repo+"/blob/"+gh.branch+"/", href.value);
                 node.attrs = node.attrs.filter(attr => attr.name !== "target" && attr.name !== "rel");
                 node.attrs.push({name: "target", value: "_blank"});
                 node.attrs.push({name: "rel", value: "noopener noreferrer"});
@@ -42,7 +44,7 @@ async function parseGFM(repo: string, branch: string, text: string): Promise<str
             if(node.nodeName === "img") {
                 const src = node.attrs.find(attr => attr.name === "src");
                 if(!src) return;
-                src.value = baseurl("https://raw.githubusercontent.com/"+repo+"/"+branch+"/", src.value);
+                src.value = baseurl("https://raw.githubusercontent.com/"+gh.repo+"/"+gh.branch+"/", src.value);
             }
         })();
         if('childNodes' in node) {
@@ -80,10 +82,10 @@ export const getStaticProps: GetStaticProps<Props, Query> = async (ctx): Promise
             project,
             project_readme: project.github != null ? {
                 text: await parseGFM(
-                    project.github.repo,
-                    project.github.branch,
+                    project.github,
                     await fetch(
-                        "https://raw.githubusercontent.com/"+project.github.repo+"/"+project.github.branch+"/README.md",
+                        "https://raw.githubusercontent.com/"
+                        +project.github.repo+"/"+project.github.branch+"/"+project.github.file,
                     ).then(r => r.text()),
                 )
             } : null,
@@ -202,7 +204,14 @@ export default function ProjectPage(props: Props): JSX.Element {
         <main class="bg-gray-300 min-h-screen">
             <CenteredContent>
                 <p class="mb-3">
-                    <RichtextSpans els={props.project.body} />
+                    <RichtextSpans els={props.project.body} />{" "}
+                </p>
+                <p class="mb-3">
+                    Made with{" "}
+                    <For each={props.project.technologies}>{(tech, i) => <React.Fragment key={i()}>
+                    <ShowBool when={i() !== 0}>{", "}</ShowBool>
+                    <Technology tech={tech} />
+                    </React.Fragment>}</For>
                 </p>
                 <ShowCond when={props.project_readme}>{readme => (
                     <div
@@ -214,4 +223,11 @@ export default function ProjectPage(props: Props): JSX.Element {
         </main>
         <Footer />
     </>;
+}
+
+function Technology(props: {tech: TechnologyName}): JSX.Element {
+    const techinfo = () => technologies[props.tech];
+    return <a href={techinfo().link} class="text-blue-700 hover:underline" target="_blank" rel="noreferrer noopener">
+        {techinfo().name}
+    </a>;
 }
