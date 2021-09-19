@@ -143,7 +143,7 @@ function GithubIcon(): JSX.Element {
 type ButtonStyle = "web_demo" | "github" | "information";
 function Button(props: {style: ButtonStyle, href: string, children: React.ReactNode}): JSX.Element {
     return <a
-        class={"inline-block p-4 px-8 rounded-md text-white <sm:min-w-max <sm:flex-1 " + {
+        class={"inline-block p-4 px-8 rounded-md text-white <sm:min-w-max <sm:flex-1 <sm:text-center " + {
             web_demo: "bg-gradient-to-r from-green-500 to-green-600",
             github: "bg-gray-500",
             information: "bg-gradient-to-r from-blue-500 to-blue-600",
