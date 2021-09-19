@@ -9,7 +9,7 @@ import { For, ShowBool, ShowCond } from '../src/solid';
 
 function Technology(attrs: {tech: TechnologyName}): JSX.Element {
   const techinfo = () => technologies[attrs.tech];
-  return <a href={techinfo().link} class="hover:underline" target="_blank" rel="noreferrer noopener">
+  return <a href={techinfo().link} class="hover:underline" target="_blank" rel="noopener">
     {techinfo().name}
   </a>;
 }
@@ -62,7 +62,7 @@ function Card(attrs: {id: string, project: Project}): JSX.Element {
   }}>
     <div class="sm:w-40 sm:h-auto flex-none overflow-hidden" aria-hidden="true">
       <Link href={targetUrl()}>
-        <a rel="noreferrer noopener" target={aTarget()} tabIndex={-1}>
+        <a rel="noopener" target={aTarget()} tabIndex={-1}>
           <img
             src={attrs.project.img[2]}
             width={attrs.project.img[0]}
@@ -78,7 +78,7 @@ function Card(attrs: {id: string, project: Project}): JSX.Element {
     </div>
     <div class="p-4 flex flex-col z-10 relative">
       <h3><Link href={targetUrl()}>
-        <a rel="noreferrer noopener" target={aTarget()} class="font-black hover:underline">
+        <a rel="noopener" target={aTarget()} class="font-black hover:underline">
           {attrs.project.title}
         </a>
       </Link></h3>
@@ -138,8 +138,8 @@ export default function Home() {
         <span class="underline"><Technology tech="typescript" /></span>,{" "}
         and <span class="underline"><Technology tech="windi" /></span>.{" "}
         <div class="mb-2"></div>
-        <a href="https://github.com/pfgithub/pfgithub.github.com" target="_blank" rel="noreferrer noopener" class="underline">Source</a> ·{" "}
-        <a href="https://github.com/pfgithub/pfgithub.github.com/edit/main/pages/index.tsx" target="_blank" rel="noreferrer noopener" class="underline">Edit</a>
+        <a href="https://github.com/pfgithub/pfgithub.github.com" target="_blank" rel="noopener" class="underline">Source</a> ·{" "}
+        <a href="https://github.com/pfgithub/pfgithub.github.com/edit/main/pages/index.tsx" target="_blank" rel="noopener" class="underline">Edit</a>
       </CenteredContent>
     </footer>
   </>;

@@ -13,8 +13,8 @@ export function CenteredContent(props: {children: React.ReactNode}): JSX.Element
 export function Footer(): JSX.Element {
   return <footer class="bg-gray-600 text-white">
     <CenteredContent>
-      <a href={"https://github.com/pfgithub/pfgithub.github.com/"} target="_blank" rel="noreferrer noopener" class="underline">Source</a> ·{" "}
-      <a href={"https://github.com/pfgithub/pfgithub.github.com/"} target="_blank" rel="noreferrer noopener" class="underline">Edit</a>
+      <a href={"https://github.com/pfgithub/pfgithub.github.com/"} target="_blank" rel="noopener" class="underline">Source</a> ·{" "}
+      <a href={"https://github.com/pfgithub/pfgithub.github.com/"} target="_blank" rel="noopener" class="underline">Edit</a>
     </CenteredContent>
   </footer>;
 }

@@ -39,7 +39,7 @@ async function parseGFM(gh: GithubInfo, text: string): Promise<string> {
                 href.value = baseurl("https://github.com/"+gh.repo+"/blob/"+gh.branch+"/", href.value);
                 node.attrs = node.attrs.filter(attr => attr.name !== "target" && attr.name !== "rel");
                 node.attrs.push({name: "target", value: "_blank"});
-                node.attrs.push({name: "rel", value: "noopener noreferrer"});
+                node.attrs.push({name: "rel", value: "noopener"});
             }
             if(node.nodeName === "img") {
                 const src = node.attrs.find(attr => attr.name === "src");
@@ -150,7 +150,7 @@ function Button(props: {style: ButtonStyle, href: string, children: React.ReactN
         }[props.style]}
         href={props.href}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener"
     >
         {props.style === "github" ? <GithubIcon /> : <ExternalIcon />}
         {" "}{props.children}
@@ -227,7 +227,7 @@ export default function ProjectPage(props: Props): JSX.Element {
 
 function Technology(props: {tech: TechnologyName}): JSX.Element {
     const techinfo = () => technologies[props.tech];
-    return <a href={techinfo().link} class="text-blue-700 hover:underline" target="_blank" rel="noreferrer noopener">
+    return <a href={techinfo().link} class="text-blue-700 hover:underline" target="_blank" rel="noopener">
         {techinfo().name}
     </a>;
 }
