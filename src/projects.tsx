@@ -106,7 +106,7 @@ export const projects = projectsList({
     },
     threadreader: {
         img: [648, 408, "/icons/threadreader.png"],
-        title: "ThreadReader",
+        title: "ThreadClient",
         body: [
             "A web app I'm making for ",
             {url: "https://reddit.com", c: ["Reddit"]}, " and ",
