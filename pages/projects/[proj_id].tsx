@@ -183,7 +183,7 @@ export default function ProjectPage(props: Props): JSX.Element {
                     visualViewport.offsetLeft + "px" + " " + visualViewport.offsetTop + "px"
                 ;
                 header.style.backgroundSize =
-                    (960 * (1 / visualViewport.scale)) + "px"
+                    (props.project.img[0] * (1 / visualViewport.scale)) + "px"
                 ;
             };
             
