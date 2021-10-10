@@ -1,7 +1,7 @@
 import "github-markdown-css";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsResult } from "next";
 import Head from "next/head";
-import React from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { BasicPage, CenteredContent, Footer, HeaderButtons } from "../../src/basic_page";
 import { GithubInfo, Project, ProjectID, projects, RichtextSpan, technologies, TechnologyName } from "../../src/projects";
 import { RichtextSpans } from "../../src/richtext";
@@ -157,21 +157,50 @@ function Button(props: {style: ButtonStyle, href: string, children: React.ReactN
     </a>;
 }
 
+type OnGotRef<E> = (element: E, onCleanup: (cb: () => void) => void) => void;
+function emulateSolidUseRef<E extends HTMLElement>(onGotRef: OnGotRef<E>) {
+    const ref = useRef<E>(null);
+
+    useEffect(() => {
+        let onCleanup: (() => void)[] = [];
+
+        if(ref.current) {
+            onGotRef(ref.current, v => onCleanup.push(v));
+        }
+
+        return () => onCleanup.forEach(item => item());
+    }, [ref.current]);
+
+    return ref;
+};
+
 export default function ProjectPage(props: Props): JSX.Element {
-    // TODO different colors for different things
-    // and multiple buttons
-    //
-    // an interactive link should be `bg-gradient-to-r from-green-500 to-green-600 text-white`
-    // kinda like a play button or something
-    // eg for something interactive like progsim or masc (once I add a web demo to masc)
-    //
-    // a source code link should be `...`
+    const headerRef = emulateSolidUseRef<HTMLElement>((header, onCleanup) => {
+        console.log(header, onCleanup);
+        if(window.visualViewport){
+            const onupdate = () => {
+                header.style.backgroundPosition =
+                    visualViewport.offsetLeft + "px" + " " + visualViewport.offsetTop + "px"
+                ;
+                header.style.backgroundSize =
+                    (960 * (1 / visualViewport.scale)) + "px"
+                ;
+            };
+            
+            visualViewport.addEventListener("resize", onupdate);
+            onCleanup(() => visualViewport.removeEventListener("resize", onupdate));
+            visualViewport.addEventListener("scroll", onupdate);
+            onCleanup(() => visualViewport.removeEventListener("scroll", onupdate));
+        }
+    });
+
     return <>
         <Head>
             <title>{props.project.title}</title>
             <meta name="description" content={getText(props.project.body)} />
         </Head>
         <header
+            ref={headerRef}
             style={{
                 backgroundImage: "url("+JSON.stringify(props.project.img[2])+")",
             }}
