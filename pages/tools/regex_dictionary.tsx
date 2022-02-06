@@ -79,7 +79,7 @@ function DictionaryUser(opts: {dict: string[]}) {
     }
 
     return <div>
-        <input value={value} onInput={e => setValue(e.currentTarget.value)} />
+        <input class="w-full" value={value} onInput={e => setValue(e.currentTarget.value)} />
         {emsg != null && <div class="text-red-500">Error! {emsg}</div>}
         <DisplayFiltered dict={opts.dict} filter={itm => !!regex.exec(itm)} />
     </div>;
