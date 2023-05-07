@@ -33,6 +33,7 @@ export const technologies = {
     wasm: technology("WebAssembly", "https://webassembly.org/"),
     vite: technology("Vite", "https://vitejs.dev/"),
     firebase: technology("Firebase", "https://firebase.google.com/"),
+    wasm: technology("WASM", "https://webassembly.org/"),
 } as const;
 
 export type GithubInfo = {
@@ -153,8 +154,7 @@ export const projects = projectsList({
         img: [924, 437, "/icons/clicker.png"],
         title: "Clicker",
         body: [
-            "An exponential growth idle game, the first version was programmed in Javascript ",
-            "on the iOS notes app with no indentation and no way to test that the code worked.",
+            "An exponential growth idle game.",
         ],
         technologies: ["typescript", "webpack", "vanilla_js", "scss"],
 
@@ -166,6 +166,24 @@ export const projects = projectsList({
         site: {
             kind: "demo",
             url: "https://clicker.pfg.pw",
+        },
+    },
+    plctfarmer: {
+        img: [160, 160, "/icons/plctfarmer.png", {pixel: true}],
+        title: "Pl¢tfarmer",
+        body: [
+            "An experimental idle platformer made for a WASM-4 fantasy console game jam.",
+        ],
+        technologies: ["zig", "wasm"],
+
+        github: {
+            repo: "pfgithub/w4test",
+            branch: "main",
+            file: "README.md",
+        },
+        site: {
+            kind: "demo",
+            url: "https://pfg.itch.io/plctfarmer",
         },
     },
     mapexplorer: {
@@ -499,6 +517,7 @@ export const categories: Category[] = [
         ],
         projects: [
             "clicker",
+            "plctfarmer",
             "animator",
             "mapexplorer",
             "masc",
