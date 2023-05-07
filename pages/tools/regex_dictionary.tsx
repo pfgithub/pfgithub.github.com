@@ -74,7 +74,7 @@ function DictionaryUser(opts: {dict: string[]}) {
             emsg = null;
         }catch(e) {
             regex = /^error$/i;
-            emsg = e.toString();
+            emsg = (e as Error).toString();
         }
     }
 

@@ -7,7 +7,8 @@ import { GithubInfo, Project, ProjectID, projects, RichtextSpan, technologies, T
 import { RichtextSpans } from "../../src/richtext";
 import { For, ShowBool, ShowCond } from "../../src/solid";
 // import {transform, h, getAttr, hasClass, withAttr} from 'html-ast-transform';
-import parse5 from "parse5";
+import type { Node } from "parse5/dist/tree-adapters/default";
+import { parse, serialize } from "parse5";
 
 function baseurl(base: string, url: string) {
     try {
@@ -27,11 +28,11 @@ async function parseGFM(gh: GithubInfo, text: string): Promise<string> {
         }),
     }).then(r => r.text());
 
-    const html = parse5.parse(in_html);
+    const html = parse(in_html);
 
     // TODO "/"+gh.file.split("/")[0..-1].join("/")
 
-    const processNode = (node: parse5.Node) => {
+    const processNode = (node: Node) => {
         (() => {
             if(node.nodeName === "a") {
                 const href = node.attrs.find(attr => attr.name === "href");
@@ -53,7 +54,7 @@ async function parseGFM(gh: GithubInfo, text: string): Promise<string> {
     };
     processNode(html);
 
-    return parse5.serialize(html);
+    return serialize(html);
 }
 
 type Query = {
@@ -177,20 +178,21 @@ function emulateSolidUseRef<E extends HTMLElement>(onGotRef: OnGotRef<E>) {
 export default function ProjectPage(props: Props): JSX.Element {
     const headerRef = emulateSolidUseRef<HTMLElement>((header, onCleanup) => {
         console.log(header, onCleanup);
-        if(window.visualViewport){
+        if(window.visualViewport != null){
+            const vv = window.visualViewport;
             const onupdate = () => {
                 header.style.backgroundPosition =
-                    visualViewport.offsetLeft + "px" + " " + visualViewport.offsetTop + "px"
+                    vv.offsetLeft + "px" + " " + vv.offsetTop + "px"
                 ;
                 header.style.backgroundSize =
-                    (props.project.img[0] * (1 / visualViewport.scale)) + "px"
+                    (props.project.img[0] * (1 / vv.scale)) + "px"
                 ;
             };
             
-            visualViewport.addEventListener("resize", onupdate);
-            onCleanup(() => visualViewport.removeEventListener("resize", onupdate));
-            visualViewport.addEventListener("scroll", onupdate);
-            onCleanup(() => visualViewport.removeEventListener("scroll", onupdate));
+            vv.addEventListener("resize", onupdate);
+            onCleanup(() => vv.removeEventListener("resize", onupdate));
+            vv.addEventListener("scroll", onupdate);
+            onCleanup(() => vv.removeEventListener("scroll", onupdate));
         }
     });
 

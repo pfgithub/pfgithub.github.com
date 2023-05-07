@@ -1,4 +1,4 @@
-const WindiCSS = require('windicss-webpack-plugin').default
+const WindiCSS = require('windicss-webpack-plugin')
 
 module.exports = {
   webpack(config) {
