@@ -13,8 +13,8 @@ export default function Home() {
       <h2 class="font-black text-3xl my-3">hi</h2>
       <p class="mb-3">
         I'm pfg. I have a{" "}
-        <Link href="/">
-          <a class="text-blue-700 hover:underline">homepage</a>
+        <Link className="text-blue-700 hover:underline" href="/">
+          homepage
         </Link>{" "}
         and a <LinkOut href="https://github.com/pfgithub">Github</LinkOut>.
       </p>

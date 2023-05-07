@@ -14,8 +14,8 @@ export default function Home() {
     <h2 class="font-black text-3xl my-3">Posts</h2>
     {
       postsVisible ? <>
-        <p>2021-04-29: <Link href="/blog/2021-04-29-sample-post">
-          <a class="text-blue-700 hover:underline">sample post</a>
+        <p>2021-04-29: <Link className="text-blue-700 hover:underline" href="/blog/2021-04-29-sample-post">
+          sample post
         </Link></p>
       </> : <p class="mb-2">*<i>
         There are no <button class="italic text-blue-900 hover:underline" onClick={() => setPostsVisible(true)}>posts</button>.

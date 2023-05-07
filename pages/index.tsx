@@ -61,26 +61,22 @@ function Card(attrs: {id: string, project: Project}): JSX.Element {
     }
   }}>
     <div class="sm:w-40 sm:h-auto flex-none overflow-hidden" aria-hidden="true">
-      <Link href={targetUrl()}>
-        <a rel="noopener" target={aTarget()} tabIndex={-1}>
-          <img
-            src={attrs.project.img[2]}
-            width={attrs.project.img[0]}
-            height={attrs.project.img[1]}
-            alt=""
-            class={[
-              "w-full h-full object-cover",
-              ((attrs.project.img[3] ?? {}).pixel ?? false) ? "rendering-crisp-edges" : "",
-            ].join(" ")}
-          />
-        </a>
+      <Link rel="noopener" target={aTarget()} tabIndex={-1} href={targetUrl()}>
+        <img
+          src={attrs.project.img[2]}
+          width={attrs.project.img[0]}
+          height={attrs.project.img[1]}
+          alt=""
+          class={[
+            "w-full h-full object-cover",
+            ((attrs.project.img[3] ?? {}).pixel ?? false) ? "rendering-crisp-edges" : "",
+          ].join(" ")}
+        />
       </Link>
     </div>
     <div class="p-4 flex flex-col z-10 relative">
-      <h3><Link href={targetUrl()}>
-        <a rel="noopener" target={aTarget()} class="font-black hover:underline">
-          {attrs.project.title}
-        </a>
+      <h3><Link rel="noopener" target={aTarget()} class="font-black hover:underline" href={targetUrl()}>
+        {attrs.project.title}
       </Link></h3>
       <div class="mb-2 mt-1">
         <RichtextSpans els={attrs.project.body} />

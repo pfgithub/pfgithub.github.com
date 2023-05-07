@@ -12,6 +12,6 @@ export default function Home() {
     parent={{name: "pfg's homepage", href: "/"}}
     filename="/pages/tools/index.tsx"
   >
-    <Link href="/tools/regex_dictionary"><a class="text-blue-600 hover:underline">Regex Dictionary</a></Link>
+    <Link className="text-blue-600 hover:underline" href="/tools/regex_dictionary">Regex Dictionary</Link>
   </BasicPage>;
 }
