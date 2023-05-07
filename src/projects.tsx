@@ -33,7 +33,6 @@ export const technologies = {
     wasm: technology("WebAssembly", "https://webassembly.org/"),
     vite: technology("Vite", "https://vitejs.dev/"),
     firebase: technology("Firebase", "https://firebase.google.com/"),
-    wasm: technology("WASM", "https://webassembly.org/"),
 } as const;
 
 export type GithubInfo = {
