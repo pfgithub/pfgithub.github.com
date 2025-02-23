@@ -531,6 +531,7 @@ export const categories: Category[] = [
         projects: [
             "clicker",
             "plctfarmer",
+            "mystwyrld",
             "animator",
             "mapexplorer",
             "masc",
