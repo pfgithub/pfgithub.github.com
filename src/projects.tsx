@@ -185,6 +185,20 @@ export const projects = projectsList({
             url: "https://pfg.itch.io/plctfarmer",
         },
     },
+    mystwyrld: {
+        img: [296, 289, "/icons/mystwyrld.png"],
+        title: "MystWyrld",
+        body: [
+            "Minecraft puzzle map"
+        ],
+        technologies: [],
+
+        github: null,
+        site: {
+            kind: "external",
+            url: "https://lfs.pfg.pw/site/mystwyrld/",
+        },
+    },
     mapexplorer: {
         img: [867, 490, "/icons/mapexplorer.png", {pixel: true}],
         title: "Mapexplorer",
